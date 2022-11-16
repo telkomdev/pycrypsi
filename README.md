@@ -2,7 +2,7 @@
 
 Custom crypto utility that wraps the `pycryptodome` module to make life easier
 
-[![go-crypsi CI](https://github.com/telkomdev/go-crypsi/actions/workflows/ci.yml/badge.svg)](https://github.com/telkomdev/go-crypsi/actions/workflows/ci.yml)
+[![pycrypsi CI](https://github.com/telkomdev/pycrypsi/actions/workflows/ci.yml/badge.svg)](https://github.com/telkomdev/pycrypsi/actions/workflows/ci.yml)
 
 
 ### Features
