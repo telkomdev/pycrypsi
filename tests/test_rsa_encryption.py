@@ -1,0 +1,100 @@
+import os
+import unittest
+from pycrypsi import rsa
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+class TestRSAEncryption(unittest.TestCase):
+    base64_rsa_private_key = 'LS0tLS1CRUdJTiBQUklWQVRFIEtFWS0tLS0tCk1JSUpRd0lCQURBTkJna3Foa2lHOXcwQkFRRUZBQVNDQ1Mwd2dna3BBZ0VBQW9JQ0FRRG5Td0tYL040YzBCR2UKaU55bGRnVzluUTFwNXIzZ0FCcndMWGg4bVhTNHd1SnF2cnl5WThyWWRJVU5ncnRRbHRkdHBkcU9zMHZRcWdJWApRSzR3S2oxZ1U1Nm1Mdlh1K2hFUkwyVUZjYzVNeDFaMFJpY2Rhc1h4Rmx2SGZNUUNkYnUwNkhDOFgvTFd2T1k4ClgxMUw4RTRvcUt1aTJ5V0JVZ3oreVdoajJYN1YrWFEwR2cyak9oTTNGQUtnMWJtSktsWk94U1VPMzN5WHJaNXUKME9ULzZjUXVMeEtsZC8vZUZqaU56bDdNbkFqMWdmdm5HT1RyV3JneWV0aHhTbENEK1ZzSHE4U04wRHJpQTZ1cAo3djBKL3grR2VFaGFXWmZjQitTbCtWdkZyaE9tMU5YbW51MjlqckVjczd2OEtjazVHZWhjV0lUOElXQ25MVnYrCk1TVDllMHA3WmExN0hyUGk2c2Y5US8zZXhPR2Jqc3BPWWQ4eTg4RG13NG11OGFUZ0VxUWVkbTk1K0tVa1pTei8KZGFJTDNTTjQzR3Y5dERDRE55dStLSGhIZ3pHbnBQYVE5b09RcW1UaThxa0V0VElTdEoyUzZjU2sxYW9raW5uUgpYRU9uN2ZYQXpTNmpUR1dUWWtIUUtMTVBTdUd2ako0eTd2VzNKSXRFaCt5bXAwblh0TktZaXY5UHZYUnUvNFFKCnNuZUJYc2pRZjB1UFVVNHRSNFFjSzM2VlhKaDlCeEpZVFUrSkNhaXRiVHpGcFJkRVU0M1o1UjB0SldsdTFwRWgKWC83c3k1cmVTNXRzcFVrVGxrMGFuNEVYcjRRbjYvTjVNcHpLaHR5UG45Z0hYSWQ1dUpYckQ3YkRQbzhzSUg5VgpoaEZFT2lsNFAxL0ViN1ZPRXgyKzR0ZGE3UDlwMFFJREFRQUJBb0lDQUVmcHBoSk1nR0N6L3E1c2ZqSUJ5cElrCldRM1N2TGwvUHVEck9sbC9PdS9SUkNXTlRVMG53dU5mQXhscXlzT3BTcXpnVXQ1b2Q4dVdlRlR6ZXRVbDVQUmsKdTJDUEhFOGp1QmZBUlNnV3RONWhZZ3QvM2x5Q25LMnpWbkRsWldvZ1llN0RFSDQ1Vk44WVYzdHc2U2ladkN0ZgpHaEptRWJpdUlyVTdPUFpHb3UxemhJSklrWEh0TmhrN1l2L1B3OEtXZzhRMC9xc3JxR2plaGZLTmg0M2NDRytWCm1qWVJZK0FReDUrcmlRVVVCS01VdVpZbVF0SzhYNlh1VlFxUVlRMVBnOUtVUU9ZWTFwMzhKeTBNVGVlRVI3Qi8KQ0h2eS9Famd1V0l6Y0NtNzBJZGdDR3VPZ1h1YytJdGtoSy9IN0RVUlRaSWN3YWhFMW5EVUpSU1pBaGUvOUMxbgpZcitDcXFrSVJKWWllcmtYMGNkc2FqQjEyOGZlZWtQeCtQeklkcmVvc05RektpR2lBcmFuWkRBVjlhR0YvODhpClphdFl3MEZLMnVuSkNpalpFV3VyaGxkMVA4MWJaanR2dWE1cGpSdHdOaVhsa014YzlmMkRVLzlWVDFKNUFEVnIKaU9JVU9hK0NJMlNvbTY0MDhZNm1aYmZkRENrZmR4R01WRzZWeTFGam1tT1JzYmJQZm5LNld0b1djUFV4cUlGdgozQVZxRXkrYjRmYXAvVmRKaUViS1I5eFo1cThCcDlkOGszZ1hyb3drY2ZTU0lITHpDOVlhbkEreUEzYmFENWtkCk5ZYm1IR0NnU0tIQnVVaUIxODJKSnh4eGJ5K0RhbFNyR3hDSE15VUUxc2I3VWlMT2tuTlplRmdtNHZsdXVmeFAKZzUybGJMVUYveWZGMjhWWmVUczdBb0lCQVFEdzdhejBLMFdlL05Za1ZUZGZ4VEdWVE1KL1FTQW9YeWtvRlVXZQpOblhPd1Fic3RYYUwrOExiME40Vzg4ZnlHRGhIRERrVkczaFhYVU9GTG53Zk5xTmZHbVk4Vy9wUmJISUR0ai9CCk9jbk9RMGwvd2YzaUtsYXhnL0k4L3JrQVZQdjAzSnNPdUVBR2hqVUg4QzNxbCtqOWdPMVNaSVJkOFg4c2JGTy8KR1ArTm1tYkQrbTRNeE0yOTd5L2lGMy9iZ0lnL0pGeGZHUVo4bkozYXJNbngzMUZKZ2Z0L1cvQjFKOHF5YUowMgpvU0RLNkwvM2tzdHUwUWFoekJGNER3a3VvV2s4UlRac3RuWUhaaEFQOXo2ajhLWDdSUVlqSmtpTWJLSlg5MXF4CnZmSlFjU1dQb3FGMm5Da3psMzM4OG9yMGNHTFRFZmNLcXdhTDBxMEJhRDQwUnM5VEFvSUJBUUQxd3dkNEpIbUEKNnJOelpYSFBwcWphTisxcVBsNC9YMStYZGR2N0gxMHpSejVDUGhJZk9PS3JTaUlvMUxRYUtsbjlsWjVQVllyeAo4aGFvZllBKzFVeFFDVXVSSm9Gb2IxenArL2hxbTA4THJ4dWEzRzI2UEpiNDhtdTl6L042ZXplM1d6YjArQU04Cm83R2tTTURFR2hDSWtHdFpWdklRNFVITTB2KzllRWpLeklra2xRWEI0ZG1FbWJONUNIWTRUUWxMOEM0VzBQNDUKWmpicFkvZWtXRkNaM24vZlNFNTRWb2hIckIyd0ZDNzNkY0ZzWUFLbTB4YlllNGxvRnNaYVBPQ0dMNFZyWlJVWApidG9pODZMRTgvSkx5S1NrUTJnSWpFZ1l4akJmaVRoT3FVRjV3ZnBJL0ZRSHNFV20xL21GQUFLcWNBWDBmRlRaCmVaN1h3blN1aVpITEFvSUJBUURqWUx4WTJEbmxtV01VZVNSQWkxK0hNeUZnYmZ0R2ZzRGQ1bTJFcW9zMmJLLzMKV0M4Z1g2T0FSemhDMnlINTFtZk9qYmVWdHc0MURYejZ4V3M1SGh6RFZhdmxEVDFKK1JvRmJNdnd0WFJDNlBnRgp6ZlNvclNLU2VCOTI5ME5zRDhpV1NGbENaQnR3ek5waHVvZnJIaUV5bHFuamw1L2c5Vmo3ZU9UMHRrZ0F3Ulo1Cm9QQ1p0bWNoK1Fuc3pCYkw5eHNlMUZjbEhQNGxQcjR2c2VFSkY2U2t4anF2OFBvWDUwMENZWDcySHMxUEVxaVIKbzRYQStSN1VOajdLV3c1a1pzdGxxVUI3Q3h5TFVRU1p2Tkx1YitDR0twZG5OdXRETkFkbkU3Z1JoVjJhRTU3SwpWMGNoSkxJeDBhaUN2L2pxUnVMTnB1Zkt0cXYvNi8yQkZYdVhaTGluQW9JQkFRRHY0Y0xMcVVhVDZBTHE4eXpvCjA3TGk5VTRlc3V2SmphMC9xSUhsRjFNZ2R6eTA2ZU5FYUlFUFVwZ1BKTGI3QnpXNWlLM3luL3UwZDJsWVlzK28KQlFpczRyWEk0ejNURTBnczk0NGRlS1RxTWF5UE52TS9vbDUyZGlGbUw3Rm5ieGdPTjlGbndTRmZzaVAxeURHbgorQTBGVDNvSXhRNFlIZGJkTjJMNnJJcllzRlo0eDZETUEwZ08zdnZJZXRMeDEzZm9rSEpjUVBpMFRDbnpHMm1nCkY3ZnN5TG9sMW0wSmx1VUVtR0tOK05Wekk1UjkxU1VoY3M5TTFTQms0ajRQM0hZSFpDRWxsNC9EeEtiVkVOeGkKdy81UHJIUFFCaDlvb0l6SzZjQlRzQnV1NUJTTjVTSUkxWXFyeW9uaDlkT08xMWpDeGY5NkNWWEV4S3FmelNXWgpLNXlMQW9JQkFEUWJzUmx5YjBFbW1uVlErTU93bklTS1cyMlIwaHhxcjllc1ZDaEkxK0hNcXVybzN0amF3UFlyCjFIc3p5NXFzcFlrOGRGQTN5RW9URmlaMlJmQ3pqMng1SWdCWGordmdJd0gyRVJ2WGdacGliQ3d4NEtSTi9nUGMKelNOcERMRkMrbXhYNGpIdXNRYlNoQ1lYY2IvZG9RVjJNNW0rZ1QrMHB0NjllRUYvUzdPS1poZnEzOUtCMUZEZwo2ZE5QWWlodHE3bVZ1MVZGSmVGUHlqUm5UWExDKzFrazFGQjlhQko5QXRHamVaOWl1alpCdVRaTDdXeVBiWG54CjQ5VDVOTGJaUE5jaUIrTG1QODc4MktuNWJIR1IrSzJoaklBZEFmeUhqeTRnT0w1TTA2N2Q4Mm9Va2ZGOG5oNU8KdnlITEc2MU80dHlGY1dCWGdCMEdidUF6T3gzSGZQbz0KLS0tLS1FTkQgUFJJVkFURSBLRVktLS0tLQ=='
+    base64_rsa_public_key = 'LS0tLS1CRUdJTiBQVUJMSUMgS0VZLS0tLS0KTUlJQ0lqQU5CZ2txaGtpRzl3MEJBUUVGQUFPQ0FnOEFNSUlDQ2dLQ0FnRUE1MHNDbC96ZUhOQVJub2pjcFhZRgp2WjBOYWVhOTRBQWE4QzE0ZkpsMHVNTGlhcjY4c21QSzJIU0ZEWUs3VUpiWGJhWGFqck5MMEtvQ0YwQ3VNQ285CllGT2VwaTcxN3ZvUkVTOWxCWEhPVE1kV2RFWW5IV3JGOFJaYngzekVBblc3dE9od3ZGL3kxcnptUEY5ZFMvQk8KS0tpcm90c2xnVklNL3Nsb1k5bCsxZmwwTkJvTm96b1ROeFFDb05XNWlTcFdUc1VsRHQ5OGw2MmVidERrLytuRQpMaThTcFhmLzNoWTRqYzVlekp3STlZSDc1eGprNjFxNE1uclljVXBRZy9sYkI2dkVqZEE2NGdPcnFlNzlDZjhmCmhuaElXbG1YM0Fma3BmbGJ4YTRUcHRUVjVwN3R2WTZ4SExPNy9DbkpPUm5vWEZpRS9DRmdweTFiL2pFay9YdEsKZTJXdGV4Nno0dXJIL1VQOTNzVGhtNDdLVG1IZk12UEE1c09KcnZHazRCS2tIblp2ZWZpbEpHVXMvM1dpQzkwagplTnhyL2JRd2d6Y3J2aWg0UjRNeHA2VDJrUGFEa0twazR2S3BCTFV5RXJTZGt1bkVwTldxSklwNTBWeERwKzMxCndNMHVvMHhsazJKQjBDaXpEMHJocjR5ZU11NzF0eVNMUklmc3BxZEoxN1RTbUlyL1Q3MTBiditFQ2JKM2dWN0kKMEg5TGoxRk9MVWVFSEN0K2xWeVlmUWNTV0UxUGlRbW9yVzA4eGFVWFJGT04yZVVkTFNWcGJ0YVJJVi8rN011YQoza3ViYktWSkU1Wk5HcCtCRjYrRUordnplVEtjeW9iY2o1L1lCMXlIZWJpVjZ3KzJ3ejZQTENCL1ZZWVJSRG9wCmVEOWZ4RysxVGhNZHZ1TFhXdXovYWRFQ0F3RUFBUT09Ci0tLS0tRU5EIFBVQkxJQyBLRVktLS0tLQ=='
+    
+    def test_encrypt_with_oap_md5(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_md5(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_md5(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertEqual(data, decrypted_data_rsa)
+
+    def test_encrypt_with_oap_sha1(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_sha1(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_sha1(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertEqual(data, decrypted_data_rsa)
+    
+    def test_encrypt_with_oap_sha256(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_sha256(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_sha256(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertEqual(data, decrypted_data_rsa)
+    
+    def test_encrypt_with_oap_sha384(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_sha384(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_sha384(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertEqual(data, decrypted_data_rsa)
+    
+    def test_encrypt_with_oap_sha512(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_sha512(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_sha512(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertEqual(data, decrypted_data_rsa)
+    
+    # negative test cases
+    def test_encrypt_with_oap_md5_should_error_when_actual_data_not_equal_to_expected(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_md5(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_md5(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertNotEqual(b'halo world', decrypted_data_rsa)
+
+    def test_encrypt_with_oap_sha1_should_error_when_actual_data_not_equal_to_expected(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_sha1(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_sha1(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertNotEqual(b'halo world', decrypted_data_rsa)
+
+    def test_encrypt_with_oap_sha256_should_error_when_actual_data_not_equal_to_expected(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_sha256(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_sha256(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertNotEqual(b'halo world', decrypted_data_rsa)
+
+    def test_encrypt_with_oap_sha384_should_error_when_actual_data_not_equal_to_expected(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_sha384(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_sha384(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertNotEqual(b'halo world', decrypted_data_rsa)
+
+    def test_encrypt_with_oap_sha512_should_error_when_actual_data_not_equal_to_expected(self):
+        data = b'hello world'
+
+        encrypted_data_rsa = rsa.encrypt_with_oap_sha512(rsa.load_key_from_base64(self.base64_rsa_public_key), data)
+
+        decrypted_data_rsa = rsa.decrypt_with_oap_sha512(rsa.load_key_from_base64(self.base64_rsa_private_key), encrypted_data_rsa)
+
+        self.assertNotEqual(b'halo world', decrypted_data_rsa)
