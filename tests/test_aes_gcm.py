@@ -1,5 +1,8 @@
+import os
 import unittest
 from pycrypsi import aes
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 class TestAESGcm(unittest.TestCase):
 
@@ -57,3 +60,15 @@ class TestAESGcm(unittest.TestCase):
 
         with self.assertRaises(Exception):
             result_encrypt = aes.encrypt_aes256_gcm_hex(key, bytes(data, 'utf-8'))
+    
+    def test_file_with_decrypt_aes256_gcm(self):
+        key = bytes.fromhex('6368616e6765207468697320706173736368616e676520746869732070617373')
+        
+        actual_file_path = os.path.join(BASE_DIR, 'testdata/gopher.png')
+        encrypted_file_path = os.path.join(BASE_DIR, 'testdata/encrypted_file.bin')
+
+        with open(encrypted_file_path, 'rb') as input_file:
+            decrypted_file_data = aes.decrypt_aes256_gcm_hex(key, input_file.read().decode())
+            with open(actual_file_path, 'rb') as actual_file:
+
+                self.assertEqual(len(decrypted_file_data), len(actual_file.read()))
