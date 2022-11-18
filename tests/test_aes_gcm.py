@@ -70,5 +70,4 @@ class TestAESGcm(unittest.TestCase):
         with open(encrypted_file_path, 'rb') as input_file:
             decrypted_file_data = aes.decrypt_aes256_gcm_hex(key, input_file.read().decode())
             with open(actual_file_path, 'rb') as actual_file:
-
-                self.assertEqual(len(decrypted_file_data), len(actual_file.read()))
+                self.assertEqual(decrypted_file_data, actual_file.read())
