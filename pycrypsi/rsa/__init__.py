@@ -2,19 +2,19 @@ import base64
 from Crypto.PublicKey import RSA
 
 from .decrypt import (
-    decrypt_with_oap_md5,
-    decrypt_with_oap_sha1,
-    decrypt_with_oap_sha256,
-    decrypt_with_oap_sha384,
-    decrypt_with_oap_sha512,
+    decrypt_with_oaep_md5,
+    decrypt_with_oaep_sha1,
+    decrypt_with_oaep_sha256,
+    decrypt_with_oaep_sha384,
+    decrypt_with_oaep_sha512,
 )
 
 from .encrypt import (
-    encrypt_with_oap_md5,
-    encrypt_with_oap_sha1,
-    encrypt_with_oap_sha256,
-    encrypt_with_oap_sha384,
-    encrypt_with_oap_sha512,
+    encrypt_with_oaep_md5,
+    encrypt_with_oaep_sha1,
+    encrypt_with_oaep_sha256,
+    encrypt_with_oaep_sha384,
+    encrypt_with_oaep_sha512,
 )
 
 from .digital_signature import (
