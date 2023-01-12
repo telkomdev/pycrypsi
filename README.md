@@ -7,6 +7,8 @@ Custom crypto utility that wraps the `pycryptodome` module to make life easier
 ### pycrypsi is compatible with each other with the following libraries
 - NodeJs https://github.com/telkomdev/crypsi
 - Golang https://github.com/telkomdev/go-crypsi
+- C# (.NET) https://github.com/telkomdev/NetCrypsi
+- Javascript (React and Browser) https://github.com/telkomdev/crypsi.js
 
 ### Features
 - Asymmetric encryption with RSA
