@@ -8,6 +8,7 @@ Custom crypto utility that wraps the `pycryptodome` module to make life easier
 - NodeJs https://github.com/telkomdev/crypsi
 - Golang https://github.com/telkomdev/go-crypsi
 - C# (.NET) https://github.com/telkomdev/NetCrypsi
+- Java/JVM https://github.com/telkomdev/jcrypsi
 - Javascript (React and Browser) https://github.com/telkomdev/crypsi.js
 
 ### Features
