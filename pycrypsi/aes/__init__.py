@@ -129,77 +129,77 @@ def __decrypt(alg: str, key: bytes, encrypted_data: str) -> bytes:
     return plain_data
 
 # cbc
-def encrypt_aes128_cbc_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes128_cbc_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_128_CBC, key, plain_data).hex()
 
-def encrypt_aes192_cbc_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes192_cbc_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_192_CBC, key, plain_data).hex()
 
-def encrypt_aes256_cbc_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes256_cbc_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_256_CBC, key, plain_data).hex()
 
-def decrypt_aes128_cbc_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes128_cbc_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_128_CBC, key, encrypted_data)
 
-def decrypt_aes192_cbc_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes192_cbc_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_192_CBC, key, encrypted_data)
 
-def decrypt_aes256_cbc_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes256_cbc_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_256_CBC, key, encrypted_data)
 
 # gcm
-def encrypt_aes128_gcm_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes128_gcm_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_128_GCM, key, plain_data).hex()
 
-def encrypt_aes192_gcm_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes192_gcm_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_192_GCM, key, plain_data).hex()
 
-def encrypt_aes256_gcm_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes256_gcm_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_256_GCM, key, plain_data).hex()
 
-def decrypt_aes128_gcm_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes128_gcm_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_128_GCM, key, encrypted_data)
 
-def decrypt_aes192_gcm_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes192_gcm_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_192_GCM, key, encrypted_data)
 
-def decrypt_aes256_gcm_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes256_gcm_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_256_GCM, key, encrypted_data)
 
 # ccm
-def encrypt_aes128_ccm_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes128_ccm_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_128_CCM, key, plain_data).hex()
 
-def encrypt_aes192_ccm_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes192_ccm_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_192_CCM, key, plain_data).hex()
 
-def encrypt_aes256_ccm_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes256_ccm_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_256_CCM, key, plain_data).hex()
 
-def decrypt_aes128_ccm_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes128_ccm_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_128_CCM, key, encrypted_data)
 
-def decrypt_aes192_ccm_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes192_ccm_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_192_CCM, key, encrypted_data)
 
-def decrypt_aes256_ccm_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes256_ccm_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_256_CCM, key, encrypted_data)
 
 # ocb
-def encrypt_aes128_ocb_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes128_ocb_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_128_OCB, key, plain_data).hex()
 
-def encrypt_aes192_ocb_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes192_ocb_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_192_OCB, key, plain_data).hex()
 
-def encrypt_aes256_ocb_hex(key: bytes, plain_data: bytes) -> str:
+def encrypt_with_aes256_ocb_hex(key: bytes, plain_data: bytes) -> str:
     return __encrypt(AES_256_OCB, key, plain_data).hex()
 
-def decrypt_aes128_ocb_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes128_ocb_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_128_OCB, key, encrypted_data)
 
-def decrypt_aes192_ocb_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes192_ocb_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_192_OCB, key, encrypted_data)
 
-def decrypt_aes256_ocb_hex(key: bytes, encrypted_data: str) -> bytes:
+def decrypt_with_aes256_ocb_hex(key: bytes, encrypted_data: str) -> bytes:
     return __decrypt(AES_256_OCB, key, encrypted_data)
