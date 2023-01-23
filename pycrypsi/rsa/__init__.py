@@ -46,7 +46,8 @@ def __is_valid_rsa_key_size(key_size: int) -> bool:
     return True
 
 '''
-generate_key_pairs will generate pair of RSA private key and public key
+generate_key_pairs will generate pair of RSA private key in PKCS8 format
+and public key in X509 format
 returns (private_key, public_key)
 '''
 def generate_key_pairs(key_size: int):
